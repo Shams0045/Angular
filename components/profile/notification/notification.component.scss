@@ -1,0 +1,98 @@
+.field {
+  max-width: 880px;
+  min-height: 586px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  margin-bottom: 60px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.title {
+  padding: 10px 0 10px 0;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.005em;
+  color: #000000;
+}
+
+.not {
+  min-height: 84px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+.inside {
+  padding: 10px 0 10px 25px;
+}
+
+
+.not-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.006em;
+  color: #000000;
+}
+
+.back-menu {
+  font-size: 14px;
+  display: inline;
+  letter-spacing: -0.006em;
+  color: #525252;
+  margin-left: 8px;
+}
+
+
+/* Responsive START*/
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+  .field {
+    margin-top: -50px;
+    min-height: 490px;
+    border-radius: 0;
+  }
+  .content {
+    padding: 22px 10px 20px 10px;
+  }
+  .title {
+    padding: 20px 0 10px 0;
+  }
+  .go-back {
+    margin-top: 20px;
+  }
+  .container {
+    padding: 0;
+  }
+  .inside {
+    padding: 10px 15px 10px 15px;
+  }
+  .not-title {
+    margin-bottom: 0;
+  }
+  .not-body {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Responsive END*/

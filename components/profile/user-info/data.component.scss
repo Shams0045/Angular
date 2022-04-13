@@ -1,0 +1,219 @@
+.field {
+  max-width: 880px;
+  height: 586px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.title {
+  padding: 10px 0 20px 0;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.005em;
+  color: #000000;
+}
+
+.content {
+  padding: 20px;
+}
+
+.data {
+  height: 56px;
+  border: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.push {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  color: #000000;
+}
+
+.notification {
+  display: inline-flex;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  bottom: -3px;
+  background-color: #62cf55;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider:before {
+  background-color: #18AD35;
+}
+
+input:checked + .slider {
+  background-color: #99D59C;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.save {
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38%;
+  height: 48px;
+  background: #18AD35;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+::ng-deep .toast-success {
+  background-color: #FFFFFF;
+}
+
+::ng-deep .toast-container .ngx-toastr {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 20px;
+  width: 300px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px #999999;
+  color: #111827;
+}
+
+
+::ng-deep button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  color: #111827;
+}
+
+.back-menu {
+  font-size: 14px;
+  display: inline;
+  letter-spacing: -0.006em;
+  color: #525252;
+  margin-left: 8px;
+}
+
+
+/* Responsive START*/
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+  .container {
+    padding: 0;
+  }
+  .field {
+    margin-top: -50px;
+    height: 490px;
+    border-radius: 0;
+  }
+  .content {
+    padding: 22px 10px 20px 10px;
+  }
+  .title {
+    padding: 20px 0 10px 0;
+  }
+  .save {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .go-back {
+    width: 35%;
+    margin-top: 20px;
+  }
+  ::ng-deep .toast-container .ngx-toastr {
+    padding: 10px 16px 0 5px;
+    width: 211px;
+    font-size: 13px;
+  }
+  ::ng-deep .toast-container .toast-close-button {
+    top: -6px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Responsive END*/
+
+
+
+
+
+
+
+

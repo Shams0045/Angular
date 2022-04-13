@@ -1,0 +1,262 @@
+.field {
+  max-width: 880px;
+  min-height: 586px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.title {
+  padding: 30px 0 0 20px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.005em;
+  color: #000000;
+}
+
+.empty {
+  position: relative;
+  height: 130px;
+  width: 130px;
+  background: url('~src/assets/img/profile/order_box.png') no-repeat 20px 16px;
+}
+
+.info {
+  position: absolute;
+  margin-top: 130px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: -0.006em;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.back {
+  height: 115px;
+  background-color: #18AD35;
+  margin: 5px;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}
+
+.order-box {
+  width: 96%;
+  height: 185px;
+  background: #FFFFFF;
+  border: 1px solid #EBEBEB;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 16px 50px 16px 50px;
+  margin: 15px 0 0 0;
+  cursor: pointer;
+}
+
+.status {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.006em;
+  color: #FFFFFF;
+  background: #18AD35;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 1px 10px 1px 10px;
+  margin-top: 5px;
+}
+
+.wrapper {
+  min-height: 356px;
+  grid-template-columns: 50% 50%;
+}
+
+.pagination-border {
+  width: 97%;
+  height: 1px;
+  background: #EBEBEB;
+  margin-top: 45px;
+}
+
+.custom-pagination {
+  width: 98%;
+}
+
+.text-back {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #525252;
+  display: -webkit-box;
+}
+
+.text-forward {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #525252;
+  display: -webkit-box;
+  float: right;
+}
+
+.img-back {
+  margin-right: 10px;
+}
+
+.img-forward {
+  margin-left: 10px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.custom-pagination .page-number {
+  margin: 0 5px;
+  padding-top: 10px;
+}
+
+.page-number.current {
+  border-top: 2px solid #18AD35;
+  padding-top: 8px !important;
+}
+
+.page-number span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.pagination-previous, .pagination-next {
+  cursor: pointer;
+}
+
+.back-menu {
+  font-size: 14px;
+  display: inline;
+  letter-spacing: -0.006em;
+  color: #525252;
+  margin-left: 8px;
+}
+
+.rest-name {
+  width: 100%;
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.rest-name-skeleton {
+  width: 100%;
+  margin: 0 0 -7px;
+  font-size: 20px;
+}
+
+.dash {
+  height: 24px;
+  border-bottom: 1px dashed #B8B8B8;
+}
+
+
+/* Responsive START*/
+@media only screen and (min-width: 300px) and (max-width: 355px) {
+  .pagination-previous {
+    display: none;
+  }
+  .pagination-next {
+    display: none;
+  }
+  .custom-pagination {
+    width: 90%;
+    margin-left: 10%;
+  }
+  .order-box {
+    padding: 16px 20px 16px 20px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+  .wrapper {
+    min-height: 356px;
+    display: initial;
+    grid-template-columns: 50% 50%;
+  }
+  .arrow {
+    display: none;
+  }
+  .container {
+    padding: 0;
+  }
+  .order-box {
+    margin: 15px 8px 15px 8px;
+  }
+  .field {
+    border-radius: 0;
+    margin-top: -48px;
+  }
+  .title {
+    padding: 15px 0 0 10px;
+  }
+  .go-back {
+    margin-left: 15px;
+    padding-top: 45px;
+    width: 25%;
+  }
+  .img-back {
+    width: 25px;
+    margin-left: 15px;
+  }
+  .img-forward {
+    width: 25px;
+    margin-right: 15px;
+  }
+  .order-box {
+    padding: 16px 20px 16px 20px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .wrapper {
+    min-height: 356px;
+    display: initial;
+    grid-template-columns: 50% 50%;
+  }
+  .arrow {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .wrapper {
+    min-height: 356px;
+    display: initial;
+    grid-template-columns: 50% 50%;
+  }
+  .arrow {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .arrow {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Responsive END*/

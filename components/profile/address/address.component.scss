@@ -1,0 +1,179 @@
+.field {
+  max-width: 880px;
+  min-height: 586px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.title {
+  padding: 10px 0 10px 0;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.005em;
+  color: #000000;
+}
+
+.location {
+  margin-top: 120px;
+}
+
+.no-address {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: -0.006em;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.add-address {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;
+  width: 33%;
+  height: 48px;
+  background: #18AD35;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.add-text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.006em;
+  color: #FFFFFF;
+}
+
+.address-box {
+  height: 40px;
+  width: 100%;
+  margin-top: 15px;
+  border-bottom: 1px solid #CCCCCC;
+  box-sizing: border-box;
+}
+
+.address-text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.006em;
+  color: #000000;
+  margin-left: 15px;
+}
+
+.address-sign {
+  margin-left: 4px;
+}
+
+.delete {
+  float: right;
+  cursor: pointer;
+  height: 33px;
+  width: 40px;
+}
+
+.delete img {
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+.back-menu {
+  font-size: 14px;
+  display: inline;
+  letter-spacing: -0.006em;
+  color: #525252;
+  margin-left: 8px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.content {
+  padding: 20px;
+}
+
+.skeleton {
+  text-align: center;
+}
+
+/* Responsive START*/
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+  .field {
+    margin-top: -50px;
+    border-radius: 0;
+    height: 650px;
+  }
+  .container {
+    padding: 0;
+  }
+  .go-back {
+    margin-left: 10px;
+    padding-top: 20px;
+    width: 25%;
+    margin-top: 20px;
+  }
+  .title {
+    padding: 20px 0 0 10px;
+  }
+  .add-address {
+    width: 80%;
+  }
+  .address-box {
+    height: 40px;
+    width: 93%;
+    margin: 15px 0 0 10px;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+  .line {
+    height: 1px;
+    background: #EBEBEB;
+    margin-left: 44px;
+  }
+  .content {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .add-address {
+    width: 50%;
+  }
+  .field {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .add-address {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .add-address {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Responsive END*/
+
+
+
+
+
+
+
+

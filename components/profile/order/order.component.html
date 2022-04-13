@@ -1,0 +1,91 @@
+<div class="container mb-5">
+  <div class="field">
+    <div *ngIf="profileText" (click)="goToProfile()" class="go-back">
+      <img src="assets/img/profile/go_back.png" alt="">
+      <p class="back-menu">Профиль</p>
+    </div>
+    <h1 class="title">Мои заказы</h1>
+    <div *ngIf="!orders" class="d-flex justify-content-center">
+      <div class="empty"></div>
+      <p class="info">У вас пока еще не было заказов</p>
+    </div>
+    <div *ngIf="orders" class="order">
+      <div class="container">
+        <div class="wrapper">
+          <ng-container *ngIf="orders.length; else skeleton">
+            <div *ngFor="let order of orders | paginate: config" class="order-box">
+              <div routerLink="/profile/{{order.order_id}}">
+                <h4 class="text-truncate rest-name">{{order.restaurant_name}}</h4>
+                <div class="dash">
+                  <span class="align-left ">Дата: </span>
+                  <span class="align-right"> {{order.created_at}}</span>
+                </div>
+                <div class="dash">
+                  <span class="align-left">Адрес: </span>
+                  <span *ngIf="order.is_takeout == true" class="align-right">Самовывоз</span>
+                  <span class="align-right">{{order.address_name}}</span>
+                </div>
+                <div class="dash">
+                  <span class="align-left">Сумма:</span>
+                  <span class="align-right">{{order.total_price | number : '1.2-2'}}</span>
+                </div>
+                <div *ngIf="order.total_discount" class="dash">
+                  <span *ngIf="order.total_discount" class="align-left">Скидка:</span>
+                  <span class="align-right">{{order.total_discount | number : '1.2-2'}}</span>
+                </div>
+                <div class="status" [style.background]="getBackgroundColor(order.status)">
+                  {{order.status}}
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #skeleton>
+            <div *ngFor="let order of globalService.generateFake(2) | paginate: config" class="order-box">
+              <h4 class="text-truncate rest-name-skeleton">
+                <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 22,'width.px': 165 }">
+                </ngx-skeleton-loader>
+              </h4>
+              <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 16,'width.%': 100 }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 16,'width.%': 100 }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 16,'width.%': 100 }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 22,'width.px': 100 }">
+              </ngx-skeleton-loader>
+            </div>
+          </ng-template>
+        </div>
+        <div class="pagination-border"></div>
+        <pagination-template #p="paginationApi"
+                             [id]="config.id"
+                             (pageChange)="config.currentPage = $event">
+          <div class="d-flex bd-highlight custom-pagination" id="custom-pagination">
+            <div class="p-2 flex-grow-1 bd-highlight pagination-previous unselectable"
+                 [class.disabled]="p.isFirstPage()">
+              <span (click)="p.previous()" class="text-back">
+                 <img class="img-back" src="assets/img/profile/arrow_back.png" alt="">
+                <div class="arrow">Назад</div>
+              </span>
+            </div>
+            <div class="page-number unselectable"
+                 *ngFor="let page of p.pages"
+                 [class.current]="p.getCurrent() === page.value">
+              <span (click)="p.setCurrent(page.value)"
+                    *ngIf="p.getCurrent() !== page.value">{{ page.label }}</span>
+              <div *ngIf="p.getCurrent() === page.value">
+                <span>{{ page.label }}</span>
+              </div>
+            </div>
+            <div class="p-2 flex-grow-1 bd-highlight text-end pagination-next unselectable"
+                 [class.disabled]="p.isLastPage()">
+              <span (click)="p.next()" class="text-forward">
+                <div class="arrow">Вперед</div>
+              <img class="img-forward" src="assets/img/profile/arrow_forward.png" alt=""></span>
+            </div>
+          </div>
+        </pagination-template>
+      </div>
+    </div>
+  </div>
+</div>

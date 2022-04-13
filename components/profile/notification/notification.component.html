@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="field">
+    <div class="content">
+      <div *ngIf="notText" (click)="goToProfile()" class="go-back">
+        <img src="assets/img/profile/go_back.png" alt="">
+        <p class="back-menu">Профиль</p>
+      </div>
+      <h1 class="title">Уведомления</h1>
+      <ng-container *ngIf="notifications.length; else skeleton">
+      <div *ngFor="let not of notifications" class="not">
+        <div class="inside">
+          <p class="not-title">{{not.title}}</p>
+          <p class="not-body">{{not.body}}</p>
+        </div>
+      </div>
+      </ng-container>
+      <ng-template #skeleton>
+        <div *ngFor="let not of globalService.generateFake(6)" class="not">
+        <div class="inside">
+          <div class="not-title">
+            <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 20,'margin.px': 5,'width.%': 20 }">
+            </ngx-skeleton-loader>
+          </div>
+          <div class="not-body">
+            <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 17,'margin.px': 5,'width.%': 75 }">
+            </ngx-skeleton-loader>
+          </div>
+        </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
+
+
+

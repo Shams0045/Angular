@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="field">
+    <div class="content">
+      <div *ngIf="profileText" (click)="goToProfile()" class="go-back">
+        <img src="assets/img/profile/go_back.png" alt="">
+        <p class="back-menu">Профиль</p>
+      </div>
+      <h1 class="title">Мои данные</h1>
+      <ng-container *ngIf="profile.phone; else skeleton">
+        <form [formGroup]="infoForm" (ngSubmit)="updateUserInfo()">
+          <div class="mb-3">
+            <input type="text" formControlName="fullName" [value]="profile.fullName"
+                   class="form-control data" placeholder="{{profile.fullName}}">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control data shadow-none" placeholder="{{profile.phone}}" readonly>
+          </div>
+          <div class="notification">
+            <p class="push">Получать PUSH уведомления</p>
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <button type="submit" class="btn save">Сохранить</button>
+        </form>
+      </ng-container>
+      <ng-template #skeleton>
+        <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 45,'width.%': 100 }">
+        </ngx-skeleton-loader>
+        <div class="mb-3">
+          <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 45,'width.%': 100 }">
+          </ngx-skeleton-loader>
+        </div>
+        <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 24,'width.%': 35 }">
+        </ngx-skeleton-loader>
+        <br>
+        <div class="mt-5">
+          <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 45,'width.%': 45 }">
+          </ngx-skeleton-loader>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

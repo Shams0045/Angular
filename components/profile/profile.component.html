@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div *ngIf="profile" class="col-3 col-md-3 " id="sidebar">
+      <div class="profile">Профиль</div>
+      <ul class="menu">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="orders " [routerLink]="['/profile/orders']" (click)="showOrders()">Мои заказы</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a class="profile_info" [routerLink]="['/profile/data']" (click)="showData()">Мои данные</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a class="address" [routerLink]="['/profile/address']" (click)="showAddress()">Мои адреса</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a class="notification" [routerLink]="['/profile/notifications']" (click)="showNot()">Уведомления</a>
+        </li>
+        <li>
+          <a class="exit user-exit" (click)="logout()">Выйти</a>
+        </li>
+      </ul>
+      <div class="support mt-5 mb-5">
+        <p class="support-text">Служба поддержки</p>
+        <p class="support-number">1212</p>
+        <button class="support-btn">
+          <a href="tel:1212">Позвонить</a>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="component" class="col-9 col-md-9 components">
+      <div class="inner-outlet">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+

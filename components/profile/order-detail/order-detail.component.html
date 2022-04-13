@@ -1,0 +1,115 @@
+<div class="container">
+  <div *ngIf="orderText" class="go-back" [routerLink]="['/profile/orders']">
+    <img class="d-inline" src="assets/img/profile/go_back.png" alt="">
+    <p class="d-inline back-menu">Мои заказы</p>
+  </div>
+  <div class="field">
+    <ng-container *ngIf="orders; else skeleton">
+      <h1 class="title">Заказ</h1>
+      <div class="main">
+        <div *ngIf="this.orders?.is_takeout == false">
+          <div class="main-status">
+            <div class="status" [ngClass]="{'green': this.statusNumber >= 1,'red': this.statusNumber == 0}"></div>
+            <div class="status" [ngClass]="{'green': this.statusNumber >= 2,'red': this.statusNumber == 0}"></div>
+            <div class="status" [ngClass]="{'green': this.statusNumber >= 3,'red': this.statusNumber == 0}"></div>
+            <div class="status" [ngClass]="{'green': this.statusNumber >= 4,'red': this.statusNumber == 0}"></div>
+            <div class="status" [ngClass]="{'green': this.statusNumber >= 5,'red': this.statusNumber == 0}"></div>
+          </div>
+          <p class="courier" [ngClass]="{'courierColor': this.statusNumber == 0}"> {{this.currentStatus?.status}}</p>
+          <div *ngIf="this.orders?.courier.name" class="line"></div>
+          <div *ngIf="this.orders?.courier.name" class="courier-info">
+            <p class="who">Курьер:</p>
+            <p class="name">{{this.orders?.courier.name}}</p>
+            <div class="call">
+              <a class="call-text" href="tel:{{this.orders?.courier.phone_number}}">Позвонить</a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="this.orders?.is_takeout == true">
+          <div class="main-status">
+            <div class="status"
+                 [ngClass]="{'green': this.takeoutStatusNum >= 1,'red': this.takeoutStatusNum == 0}"></div>
+            <div class="status"
+                 [ngClass]="{'green': this.takeoutStatusNum >= 2,'red': this.takeoutStatusNum == 0}"></div>
+            <div class="status"
+                 [ngClass]="{'green': this.takeoutStatusNum >= 3,'red': this.takeoutStatusNum == 0}"></div>
+          </div>
+          <p class="courier"
+             [ngClass]="{'courierColor': this.takeoutStatusNum == 0}"> {{this.currentStatus?.status}}</p>
+        </div>
+        <div class="line"></div>
+        <div class="courier-info">
+          <p class="who">Адрес доставки:</p>
+          <p *ngIf="this.orders?.is_takeout" class="name">Самовывоз</p>
+          <p class="name">{{this.orders?.address_name}}</p>
+        </div>
+        <div class="line"></div>
+        <div class="restaurant ">
+          <p class=" text-truncate  restaurant-name">
+            {{this.orders?.restaurant_name}}
+          </p>
+          <p class=" total">
+            {{this.orders?.total_price | number : '1.2-2'}} c
+          </p>
+        </div>
+        <div *ngFor="let product of products">
+          <div class="list">
+            <div class="left">
+              <p class="in-cart small">{{product.amount}}</p>
+              <p class="in-cart small">x</p>
+              <p class="in-cart name">{{product.product_name}}</p>
+            </div>
+            <div class="right">
+              <p class="price">{{product.product_price | number : '1.2-2'}} c</p>
+            </div>
+          </div>
+          <div class="option">
+            <p class="d-inline option-name">{{product.option_name}}</p>
+            <span *ngIf="product.discount_price" class="d-inline redLine discount-price">
+           <span class="">{{product.product_price | number : '1.2-2'}} с</span>
+        </span>
+          </div>
+          <div class="empty"></div>
+        </div>
+        <div *ngIf="this.orders?.total_discount" class="total-discount">
+          <div class="d-inline discount_total_text">Скидка</div>
+          <div class="d-inline discount_total_price">{{this.orders?.total_discount | number : '1.2-2'}} с</div>
+        </div>
+
+
+        <div  *ngIf="orders.delivery_price" class="total-price">
+          <div class="d-inline price_total_text">Доставка</div>
+          <div class="d-inline total-currency">{{this.orders?.delivery_price | number : '1.2-2'}} с</div>
+        </div>
+
+
+
+        <div *ngIf="this.statusNumber == 1" class="submit unselectable" [ngClass]="{'green': this.statusNumber == 1}">
+          <div class="submit-text" [ngClass]="{'white': this.statusNumber == 1}" (click)="removeOrder()">
+            Отменить заказ
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #skeleton>
+      <h1 class="title">
+        <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 25,'width.%': 15 }">
+        </ngx-skeleton-loader>
+      </h1>
+      <div class="main">
+        <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 15,'width.%': 100 }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 25,'width.%': 40 }">
+        </ngx-skeleton-loader>
+        <div *ngFor="let product of globalService.generateFake(7)">
+          <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 15,'width.%': 100 }">
+          </ngx-skeleton-loader>
+        </div>
+        <div class="mt-3">
+          <ngx-skeleton-loader [theme]="{'border-radius.px': 15,'height.px': 45,'width.%': 100 }">
+          </ngx-skeleton-loader>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
